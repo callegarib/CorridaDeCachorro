@@ -5,6 +5,9 @@ public class CorridaDeCachorro
 {
     private const int NUMERO_MINIMO_DE_APOSTADORES = 5;
     private const int NUMERO_MINIMO_DE_CORREDORES = 4;
+    public string nomeApostador;
+    public string nomeCorredor;
+    public int numeroDeApostadores;
 
     public double ValorTotalDeApostas { get; set; } = 0.0;
     public List<Apostador> Apostadores { get; }
@@ -131,4 +134,41 @@ public class CorridaDeCachorro
             }
         }
     }
+
+    public void AdicionarApostadores()
+    {
+        int numeroDeApostadores = Convert.ToInt32(Console.ReadLine());
+        if (numeroDeApostadores < NUMERO_MINIMO_DE_APOSTADORES)
+        {
+            throw new ArgumentException("São necessários no mínimo 5 apostadores");
+        }
+
+
+        for (int i = 1; i <= numeroDeApostadores; i++)
+        {
+            Console.WriteLine($"Digite o nome do apostador {i}:");
+            nomeApostador = Console.ReadLine();
+            Apostadores.Add(new Apostador(nomeApostador));
+        }
+    }
+
+    public void AdicionarCorredores()
+    {
+        int numeroDeCorredores = Convert.ToInt32(Console.ReadLine());
+        if (numeroDeCorredores < NUMERO_MINIMO_DE_CORREDORES)
+        {
+            throw new ArgumentException("No minimo é permitido 4 corredores");
+        }
+
+
+        for (int i = 1; i <= numeroDeCorredores; i++)
+        {
+            Console.WriteLine($"Digite o nome do apostador {i}:");
+            nomeCorredor = Console.ReadLine();
+            Corredores.Add(new Corredor(nomeCorredor));
+        }
+    }
+
+
+
 }

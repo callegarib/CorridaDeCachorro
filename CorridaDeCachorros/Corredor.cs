@@ -14,6 +14,13 @@ public class Corredor : BaseModel
         Posicao = Posicoes.NaoGanho;
     }
 
+    public Corredor(string nomeCorredor)
+    {
+        Nome = nomeCorredor;
+        _distanciaPercorrida = 0.0;
+        Posicao = Posicoes.NaoGanho;
+    }
+
     public void Mover()
     {
         int distanciaPercorrida = Random.Next(1, 6);
